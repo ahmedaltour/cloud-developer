@@ -1,7 +1,7 @@
 version: "3"
 services:
   reverseproxy:
-      image: scheele/reverseproxy
+      image: ahmedaltour/reverseproxy
       ports:
           - 8080:8080
       restart: always
@@ -9,32 +9,32 @@ services:
         - backend-user
         - backend-feed     
   backend-user:
-    image: scheele/udacity-restapi-user
+    image: ahmedaltour/udacity-restapi-user
     environment:
-      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
-      POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
-      POSTGRESS_DB: $POSTGRESS_DB 
-      POSTGRESS_HOST: $POSTGRESS_HOST 
-      AWS_REGION: $AWS_REGION 
-      AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_BUCKET
-      JWT_SECRET: $JWT_SECRET
+      POSTGRESS_USERNAME: "udagramaltourdev"
+      POSTGRESS_PASSWORD: "udagramaltourdev"
+      POSTGRESS_DB: "udagramaltourdev"
+      POSTGRESS_HOST: "udagramaltourdev.cenihmh40szt.us-east-1.rds.amazonaws.com"
+      AWS_REGION: "us-east-1"
+      AWS_PROFILE: "default"
+      AWS_BUCKET: "udagram-altour-dev"
+      JWT_SECRET: "helloworld"
       URL: "http://localhost:8100"
   backend-feed:
-    image: scheele/udacity-restapi-feed
+    image: ahmedaltour/udacity-restapi-feed
     volumes:
       - $HOME/.aws:/root/.aws
     environment:
-      POSTGRESS_USERNAME: $POSTGRESS_USERNAME
-      POSTGRESS_PASSWORD: $POSTGRESS_PASSWORD 
-      POSTGRESS_DB: $POSTGRESS_DB 
-      POSTGRESS_HOST: $POSTGRESS_HOST 
-      AWS_REGION: $AWS_REGION 
-      AWS_PROFILE: $AWS_PROFILE 
-      AWS_BUCKET: $AWS_BUCKET
-      JWT_SECRET: $JWT_SECRET
+      POSTGRESS_USERNAME: "udagramaltourdev"
+      POSTGRESS_PASSWORD: "udagramaltourdev"
+      POSTGRESS_DB: "udagramaltourdev"
+      POSTGRESS_HOST: "udagramaltourdev.cenihmh40szt.us-east-1.rds.amazonaws.com"
+      AWS_REGION: "us-east-1"
+      AWS_PROFILE: "default"
+      AWS_BUCKET: "udagram-altour-dev"
+      JWT_SECRET: "helloworld"
       URL: "http://localhost:8100"
   frontend:
-    image: scheele/udacity-frontend:local
+    image: ahmedaltour/udacity-frontend:local
     ports:
       - "8100:80"

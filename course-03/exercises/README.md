@@ -63,5 +63,5 @@ run Travis.yaml file located in course-03 directory which by its turn will pull 
 4. reverse proxy---->https://hub.docker.com/repository/docker/ahmedaltour/reverseproxy
 
 ### screenshots for the project
-The screen shoots are located in screenshots folder in the repo.
+The screenshots are located in screenshots folder in the repo.
 ***

@@ -54,4 +54,14 @@ ionic build
 
 # Starting the app in the cloud
 
-### run Travis.yaml file located in course-03 directory which by its turn will create the run the docker-compose-build.yaml
+run Travis.yaml file located in course-03 directory which by its turn will pull the images and build the containers by running the docker-compose-build.yaml and kubernetes wil use these containers to update the pods in the cluster
+
+### dockerhub images
+1- backend feed service image --> https://hub.docker.com/repository/docker/ahmedaltour/udacity-restapi-feed
+2- backend user services image --> https://hub.docker.com/repository/docker/ahmedaltour/udacity-restapi-user
+3- frontend-->https://hub.docker.com/repository/docker/ahmedaltour/udacity-frontend
+4-reverse proxy---->https://hub.docker.com/repository/docker/ahmedaltour/reverseproxy
+
+### screenshots for the project
+The screen shoots are located in screenshots folder in the repo.
+***

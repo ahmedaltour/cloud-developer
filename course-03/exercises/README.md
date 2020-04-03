@@ -51,3 +51,7 @@ Ionic CLI can build the frontend into static HTML/CSS/JavaScript files. These fi
 ionic build
 ```
 ***
+
+# Starting the app in the cloud
+
+### run Travis.yaml file located in course-03 directory which by its turn will create the run the docker-compose-build.yaml

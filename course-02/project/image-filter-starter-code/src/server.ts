@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import {filterImageFromURL, deleteLocalFiles} from './util/util';
+import { TIMEOUT } from 'dns';
 
 (async () => {
 
@@ -30,6 +31,21 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   /**************************************************************************** */
 
   //! END @TODO1
+
+  app.get("/filteredimage", async (req, res) => {
+    const image_url = req.param("image_url");
+    if (!image_url) {
+      return res.status(400).send({ message: "image url must be included" });
+    }
+  
+    const filteredpath = await filterImageFromURL(image_url);
+    await res.status(200).sendFile(filteredpath);
+    res.on("finish", function() {
+      deleteLocalFiles([filteredpath]);
+    });
+  });
+  
+  
   
   // Root Endpoint
   // Displays a simple message to the user
